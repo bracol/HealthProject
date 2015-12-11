@@ -53,7 +53,7 @@ public class MainLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 attempLogin();
-                //startActivity(new Intent(MainLoginActivity.this, SearchActivity.class));
+                //startActivity(new Intent(MainLoginActivity.this, SearchActivityW.class));
             }
         });
         mLoginFormView = findViewById(R.id.login_form);
@@ -172,7 +172,8 @@ public class MainLoginActivity extends AppCompatActivity {
             showProgress(false);
 
             if (success) {
-                finish();
+                Intent goToSearch = new Intent(MainLoginActivity.this, SearchActivity.class);
+                startActivity(goToSearch);
             } else {
                 Toast.makeText(getBaseContext(), error, Toast.LENGTH_SHORT).show();
                 //mPasswordView.setError(getString(R.string.error_incorrect_password));

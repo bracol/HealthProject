@@ -33,6 +33,7 @@
     <string name="str_communication">Communicate</string>
     <string name="str_share">Share</string>
     <string name="str_send">Send</string>
+    <string name="centro_custo">Centro de custo</string>
 
     <string-array name="tabs">
         <item>Centro Custo</item>
