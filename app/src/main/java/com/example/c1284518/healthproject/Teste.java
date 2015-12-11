@@ -9,4 +9,7 @@ public class Teste {
     public Teste(String jose){
         this.jose = jose;
     }
+    int maroto;
+
+    public Teste(){}
 }
