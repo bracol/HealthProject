@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Health Project</string>
+    <string name="title_activity_main_blank">Activity em branco</string>
+    <string name="title_activity_main_login">Login</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_username">Usuário</string>
+    <string name="prompt_password">Senha</string>
+    <string name="action_sign_in">Login ou registre-se</string>
+    <string name="action_sign_in_short">Login</string>
+    <string name="error_invalid_email">Este usuário é inválido</string>
+    <string name="error_invalid_password">Esta senha é muito curta</string>
+    <string name="error_incorrect_password">Essa senha está incorreta</string>
+    <string name="error_field_required">Este campo é obrigatório</string>
+    <string name="permission_rationale">"Permissões de contatos são necessárias para fornecer e-mail."</string>
+    <string name="error_login">Usuário/senha incorreto</string>
+    <string name="title_activity_main_navigation_drawer">Navigation Drawer</string>
+
+    <string name="navigation_drawer_open">Abrir Navigation Drawer</string>
+    <string name="navigation_drawer_close">Fechar Navigation Drawer</string>
+
+    <string name="action_settings">Configurações</string>
+
+</resources>
