@@ -9,10 +9,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.c1284518.healthproject.R;
+import com.example.c1284518.healthproject.controller.Adapter.CentroCustoAdapter;
+import com.example.c1284518.healthproject.controller.adapter_tab.CentroCustoAdapterTab;
+import com.example.c1284518.healthproject.controller.adapter_tab.ClasseValorAdapterTab;
+import com.example.c1284518.healthproject.controller.adapter_tab.ItemContaAdapterTab;
 import com.example.c1284518.healthproject.model.entitites.CentroDeCusto;
 import com.example.c1284518.healthproject.model.entitites.ClasseDeValor;
 import com.example.c1284518.healthproject.model.entitites.ItemDeConta;
@@ -27,6 +32,10 @@ import java.util.List;
 public class CentroCustoFragment extends android.support.v4.app.Fragment {
 
     public final static String TAB_POSITION_KEY = "TAB_POSITION_KEY";
+    public final static String ID_CENTRO_CUSTO = "ID_CENTRO_CUSTO";
+    public final static String ID_ITEM_VENDA = "ID_ITEM_VENDA";
+    private int id_centro;
+    private int id_item;
     public RecyclerView mRecyclerView;
     public ListView mListView;
     public static Activity mContext;
@@ -43,9 +52,9 @@ public class CentroCustoFragment extends android.support.v4.app.Fragment {
     List<ClasseDeValor> listClasse = getItensClasse();
 
 
-    public ArrayAdapter<CentroDeCusto> adapter1 = new ArrayAdapter<CentroDeCusto>(mContext, android.R.layout.simple_list_item_1, listCentro);
-    public ArrayAdapter<ItemDeConta> adapter2 = new ArrayAdapter<ItemDeConta>(mContext, android.R.layout.simple_list_item_1, listItem);
-    public ArrayAdapter<ClasseDeValor> adapter3 = new ArrayAdapter<ClasseDeValor>(mContext, android.R.layout.simple_list_item_1, listClasse);
+    public CentroCustoAdapterTab adapter1;
+    public ItemContaAdapterTab adapter2;
+    public ClasseValorAdapterTab adapter3;
 
     public static CentroCustoFragment getInstance(int position, Activity context){
         mContext = context;
@@ -59,10 +68,12 @@ public class CentroCustoFragment extends android.support.v4.app.Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        bindAdapters();
         View layout = inflater.inflate(R.layout.recycler_view_fragment, container, false);
+        bindListView(layout);
         Bundle bundle = getArguments();
         int position = bundle.getInt(TAB_POSITION_KEY);
-        mListView = (ListView) layout.findViewById(R.id.recyclerView);
+
 
         switch (position){
             case 0:
@@ -75,6 +86,16 @@ public class CentroCustoFragment extends android.support.v4.app.Fragment {
         }
 
         return layout;
+    }
+
+    public void bindListView(View v){
+        mListView = (ListView) v.findViewById(R.id.recyclerView);
+    }
+
+    private void bindAdapters() {
+        adapter1 = new CentroCustoAdapterTab(mContext, listCentro);
+        adapter2 = new ItemContaAdapterTab(mContext, listItem);
+        adapter3 = new ClasseValorAdapterTab(mContext, listClasse);
     }
 
     public List<CentroDeCusto> getItensCentro(){

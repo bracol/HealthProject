@@ -26,6 +26,7 @@ public class SearchActivity extends AppCompatActivity {
     private List<String> mLista = new ArrayList<>();
     private List<String> mListaConta = new ArrayList<>();
     private List<String> mListaClasse = new ArrayList<>();
+
     List<String> lista = new ArrayList<>();
 
     @Override

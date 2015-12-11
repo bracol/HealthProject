@@ -12,14 +12,20 @@
         <activity
             android:name=".controller.activities.MainLoginActivity"
             android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity
             android:name=".controller.activities.SearchActivity"
             android:label="@string/app_name">
+
+        </activity>
+        <activity
+            android:name=".controller.SearchActivityW"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
 

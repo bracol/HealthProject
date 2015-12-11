@@ -18,6 +18,8 @@ public class SearchActivityW extends AppCompatActivity {
 
     private SlidingTabLayout mSlidingTabLayout;
     private ViewPager mViewPager;
+    public static long id_centro;
+    public static long id_item;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

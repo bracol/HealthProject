@@ -23,6 +23,7 @@ public class CentroCustoAdapter extends BaseAdapter {
 
     public CentroCustoAdapter(Activity context, List<String> list){
            mContext = context;
+
            mList = list;
     }
 
