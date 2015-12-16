@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckedTextView;
+import android.widget.TextView;
 
 import com.example.c1284518.healthproject.R;
 import com.example.c1284518.healthproject.model.entitites.CentroDeCusto;
@@ -49,7 +50,7 @@ public class CentroCustoAdapterTab extends BaseAdapter {
         CentroDeCusto centro = getItem(position);
         View v = mContext.getLayoutInflater().inflate(R.layout.list_item_recycle, parent, false);
 
-        CheckedTextView tv = (CheckedTextView) v.findViewById(android.R.id.text1);
+        TextView tv = (TextView) v.findViewById(R.id.textViewRecycler);
         tv.setTextColor(Color.GRAY);
         tv.setText(centro.getCentro());
 

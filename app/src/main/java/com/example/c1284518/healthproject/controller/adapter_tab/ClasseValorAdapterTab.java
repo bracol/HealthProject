@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.c1284518.healthproject.R;
+import com.example.c1284518.healthproject.controller.SearchActivityW;
 import com.example.c1284518.healthproject.model.entitites.ClasseDeValor;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public class ClasseValorAdapterTab extends BaseAdapter {
     private Activity mContext;
     private List<ClasseDeValor> mLista;
 
-    public ClasseValorAdapterTab(Activity context, List<ClasseDeValor> lista){
+    public ClasseValorAdapterTab(Activity context, List<ClasseDeValor> lista) {
         mContext = context;
         mLista = lista;
     }
@@ -41,17 +42,17 @@ public class ClasseValorAdapterTab extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ClasseDeValor classeDeValor =  getItem(position);
+        ClasseDeValor classeDeValor = getItem(position);
 
         View v = mContext.getLayoutInflater().inflate(R.layout.list_item_recycle, parent, false);
 
-        TextView tv = (TextView) v.findViewById(android.R.id.text1);
+        TextView tv = (TextView) v.findViewById(R.id.textViewRecycler);
         tv.setTextColor(Color.GRAY);
         tv.setText(classeDeValor.getClasseValor());
         return v;
     }
 
-    public void setItens(List<ClasseDeValor> newList){
+    public void setItens(List<ClasseDeValor> newList) {
         mLista.clear();
         mLista.addAll(newList);
     }

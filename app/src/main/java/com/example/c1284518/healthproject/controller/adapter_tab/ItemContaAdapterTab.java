@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.c1284518.healthproject.R;
+import com.example.c1284518.healthproject.controller.SearchActivityW;
 import com.example.c1284518.healthproject.model.entitites.ItemDeConta;
 
 import java.util.List;
@@ -46,9 +47,10 @@ public class ItemContaAdapterTab extends BaseAdapter {
 
         View v = mContext.getLayoutInflater().inflate(R.layout.list_item_recycle, parent, false);
 
-        TextView tv = (TextView) v.findViewById(android.R.id.text1);
+        TextView tv = (TextView) v.findViewById(R.id.textViewRecycler);
         tv.setTextColor(Color.GRAY);
         tv.setText(itemDeConta.getItem());
+
         return v;
     }
 

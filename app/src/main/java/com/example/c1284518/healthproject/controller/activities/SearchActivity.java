@@ -1,16 +1,23 @@
 package com.example.c1284518.healthproject.controller.activities;
 
 import android.annotation.TargetApi;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.c1284518.healthproject.R;
 import com.example.c1284518.healthproject.controller.Adapter.*;
+import com.example.c1284518.healthproject.controller.SearchActivityW;
+import com.example.c1284518.healthproject.model.entitites.CentroDeCusto;
+import com.example.c1284518.healthproject.model.entitites.ClasseDeValor;
+import com.example.c1284518.healthproject.model.entitites.ItemDeConta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +27,7 @@ import java.util.List;
  */
 public class SearchActivity extends AppCompatActivity {
 
+    public Toolbar toolbar;
     private Spinner mCentroCusto;
     private Spinner mItemConta;
     private Spinner mClasseValor;
@@ -37,7 +45,13 @@ public class SearchActivity extends AppCompatActivity {
         bindCentroCusto();
         bindItemConta();
         bindClasseValor();
+        bindToolbar();
 
+    }
+
+    private void bindToolbar() {
+        toolbar = (Toolbar) findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
     }
 
     private void bindClasseValor() {
@@ -168,4 +182,7 @@ public class SearchActivity extends AppCompatActivity {
         mLista.add("custo4");
         mLista.add("custo5");
     }
+
+
+
 }

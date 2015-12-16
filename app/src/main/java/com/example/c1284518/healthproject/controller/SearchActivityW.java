@@ -4,11 +4,15 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import com.example.c1284518.healthproject.R;
 import com.example.c1284518.healthproject.controller.activities.CentroCustoFragment;
+import com.example.c1284518.healthproject.controller.activities.ClasseValorFragment;
+import com.example.c1284518.healthproject.controller.activities.ItemVendaFragment;
 import com.example.c1284518.healthproject.controller.tabs.SlidingTabLayout;
 
 /**
@@ -17,9 +21,10 @@ import com.example.c1284518.healthproject.controller.tabs.SlidingTabLayout;
 public class SearchActivityW extends AppCompatActivity {
 
     private SlidingTabLayout mSlidingTabLayout;
-    private ViewPager mViewPager;
+    public static ViewPager mViewPager;
     public static long id_centro;
     public static long id_item;
+    public Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,13 @@ public class SearchActivityW extends AppCompatActivity {
     private void bindComponents() {
         bindPager();
         bindTabs();
+        bindToolbar();
+
+    }
+
+    private void bindToolbar() {
+        toolbar = (Toolbar) findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
     }
 
     private void bindPager() {
@@ -46,26 +58,10 @@ public class SearchActivityW extends AppCompatActivity {
         mSlidingTabLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         mSlidingTabLayout.setSelectedIndicatorColors(getResources().getColor(R.color.colorAccent));
         mSlidingTabLayout.setViewPager(mViewPager);
-        mSlidingTabLayout.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
 
     }
 
-    class MyPageAdapter extends FragmentPagerAdapter {
+    class MyPageAdapter extends FragmentStatePagerAdapter {
         String[] tabText = getResources().getStringArray(R.array.tabs);
 
         public MyPageAdapter(FragmentManager fm) {
@@ -74,8 +70,14 @@ public class SearchActivityW extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            CentroCustoFragment myFragment = CentroCustoFragment.getInstance(position, SearchActivityW.this);
-
+            Fragment myFragment;
+            if (position == 0) {
+                myFragment = CentroCustoFragment.getInstance(position, SearchActivityW.this);
+            } else if (position == 1){
+                myFragment = ItemVendaFragment.getInstance(position, SearchActivityW.this);
+            } else {
+                myFragment = ClasseValorFragment.getInstance(position, SearchActivityW.this);
+            }
             return myFragment;
         }
 

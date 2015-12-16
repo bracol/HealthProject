@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +26,7 @@ public class MainLoginActivity extends AppCompatActivity {
 
     UserLoginAsync mAuthTask = null;
 
+    private Toolbar toolbar;
     private EditText mUsernameView;
     private EditText mPasswordView;
     private View mLoginFormView;
@@ -58,6 +60,10 @@ public class MainLoginActivity extends AppCompatActivity {
         });
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+        toolbar = (Toolbar) findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
+
     }
 
     private void attempLogin(){
